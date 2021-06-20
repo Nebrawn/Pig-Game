@@ -27,6 +27,8 @@ const init = function () {
   playing = true;
   player1El.classList.remove('player--active');
   player0El.classList.add('player--active');
+  player1El.classList.remove('player--winner');
+  player0El.classList.remove('player--winner');
 };
 
 const switchPlayer = function () {
@@ -67,6 +69,8 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     if (scores[activePlayer] >= 20) {
+      currentScore = 0;
+      document.getElementById(`current--${activePlayer}`).textContent = 0;
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
